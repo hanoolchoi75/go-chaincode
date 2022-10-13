@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"github.com/hyperledger/fabric-contract-api-go/contractapi"
+)
 
 func main() {
-	fmt.Println("Hello Go World with Git using Fork application!!!")
+	simpleContract := new(SimpleContract)
+	cc, err := contractapi.NewContract(simpleContract)
+	if err != nil {
+		panic(err.Error())
+	}
+	if err := cc.Start(); err != nil {
+		panic(err.Error())
+	}
+	
 }
