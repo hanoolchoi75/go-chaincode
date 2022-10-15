@@ -6,6 +6,8 @@ import (
 
 func main() {
 	simpleContract := new(SimpleContract)
+	simpleContract.TransactionContextHandler = new(CustomTransactionContext)
+	simpleContract.BeforeTransaction = GetWorldState
 	cc, err := contractapi.NewChaincode(simpleContract)
 	if err != nil {
 		panic(err.Error())
@@ -13,5 +15,5 @@ func main() {
 	if err := cc.Start(); err != nil {
 		panic(err.Error())
 	}
-
+	
 }
