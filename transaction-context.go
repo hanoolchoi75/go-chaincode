@@ -10,7 +10,7 @@ type CustomTransactionContext struct {
 }
 
 func (ctc *CustomTransactionContext) GetData() []byte {
-	return ctc.data 
+	return ctc.data
 }
 
 func (ctc *CustomTransactionContext) SetData(data []byte) {
@@ -18,7 +18,7 @@ func (ctc *CustomTransactionContext) SetData(data []byte) {
 }
 
 type CustomTransactionContextInterface interface {
-	contractapi.TrasationContextInterface
+	contractapi.TransactionContextInterface
 	GetData() []byte
 	SetData([]byte)
 }

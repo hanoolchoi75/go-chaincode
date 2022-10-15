@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 )
 
 func GetWorldState(ctx CustomTransactionContextInterface) error {
@@ -18,4 +19,10 @@ func GetWorldState(ctx CustomTransactionContextInterface) error {
 	}
 
 	ctx.SetData(existing)
+	return nil
+}
+
+func UnknownTransactionHandler(ctx CustomTransactionContextInterface) error {
+	fcn, args := ctx.GetStub().GetFunctionAndParameters()
+	return fmt.Errorf("Invalid function %s passed with args %v", fcn, args)
 }
