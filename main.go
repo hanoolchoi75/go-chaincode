@@ -6,12 +6,12 @@ import (
 
 func main() {
 	simpleContract := new(SimpleContract)
-	cc, err := contractapi.NewContract(simpleContract)
+	cc, err := contractapi.NewChaincode(simpleContract)
 	if err != nil {
 		panic(err.Error())
 	}
 	if err := cc.Start(); err != nil {
 		panic(err.Error())
 	}
-	
+
 }
