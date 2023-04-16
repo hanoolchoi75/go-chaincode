@@ -1,4 +1,4 @@
-package chaincode
+package go-chaincode/chaincode
 
 import (
 	"encoding/json"
